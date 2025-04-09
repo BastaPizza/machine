@@ -19,7 +19,7 @@ jobs:
         run: composer install
 
       - name: Run linting
-        run: php vendor/bin/phpcs --standard=PSR2 src
+        run: vendor/bin/phpcs --standard=PSR2 src
 
       - name: Run tests
-        run: php vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+        run: vendor/bin/phpunit --bootstrap vendor/autoload.php tests
