@@ -10,25 +10,22 @@ jobs:
       - name: Checkout code
         uses: actions/checkout@v2
 
-      - name: Set up PHP
+      - name: Configurer PHP
         uses: shivammathur/setup-php@v2
         with:
           php-version: '5.6.40'
 
-      - name: Install dependencies
+      - name: Installer les dépendances
         run: composer install
 
-      - name: ls
-        run: ls -al
+      - name: Modifier les permissions de phpcs
+        run: sudo chmod +x vendor/bin/phpcs
 
-      - name: chmod
-        run: chmod +x vendor/bin/phpcs
+      - name: Modifier les permissions de phpunit
+        run: sudo chmod +x vendor/bin/phpunit
 
-      - name : chmod
-        run : chmod +x vendor/bin/phpunit
+      - name: Exécuter le linting
+        run: php vendor/bin/phpcs --standard=PSR2 src
 
-      - name: Run linting
-        run: vendor/bin/phpcs --standard=PSR2 src
-
-      - name: Run tests
-        run: vendor/bin/phpunit --bootstrap vendor/autoload.php tests
+      - name: Exécuter les tests
+        run: php vendor/bin/phpunit --bootstrap vendor/autoload.php tests
