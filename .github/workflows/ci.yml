@@ -23,6 +23,9 @@ jobs:
 
       - name: chmod
         run: chmod +x vendor/bin/phpcs
+      
+      - name: chmod
+        run: chmod +x vendor/bin/phpunit
         
 
       - name: Run linting
