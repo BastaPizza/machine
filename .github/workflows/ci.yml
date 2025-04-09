@@ -21,6 +21,12 @@ jobs:
       - name: ls
         run: ls -al
 
+      - name: chmod
+        run: chmod +x vendor/bin/phpcs
+
+      - name : chmod
+        run : chmod +x vendor/bin/phpunit
+
       - name: Run linting
         run: vendor/bin/phpcs --standard=PSR2 src
 
