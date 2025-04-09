@@ -3,14 +3,17 @@ namespace UPJV;
 
 use PHPUnit\Framework\TestCase;
 
-class MesDatesTest extends TestCase {
-    public function testDemainReturnsJson() {
+class MesDatesTest extends TestCase
+{
+    public function testDemainReturnsJson()
+    {
         $mesDates = new MesDates();
         $result = $mesDates->demain();
         $this->assertJson($result, "La méthode demain() doit retourner une chaîne JSON valide.");
     }
 
-    public function testDemainReturnsTomorrowDate() {
+    public function testDemainReturnsTomorrowDate()
+    {
         $mesDates = new MesDates();
         $tomorrow = (new \DateTime('tomorrow'))->format('d-m-Y');
         $result = $mesDates->demain();
